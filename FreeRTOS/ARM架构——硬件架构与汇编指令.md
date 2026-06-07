@@ -1,4 +1,4 @@
-
+﻿
 ### 1.汇编指令
 
 - 读内存：Load
@@ -46,5 +46,5 @@ int add(volatile int a, volatile int b)
 **volatile ：不要让编译器优化程序
 
 反汇编：
-![[image.png]]
+![](attachment/image.png)
     地址                机器码                                       汇编码
