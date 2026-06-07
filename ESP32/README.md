@@ -28,6 +28,10 @@
 - [[cat_watch_esp32s3/hardware/3D外壳打印和装配说明|3D 外壳打印和装配说明]]
 - [[cat_watch_esp32s3/docs/换电脑继续项目指南|换电脑继续项目指南]]
 
+## 软件环境恢复
+
+- [[../Obsidian配置备份说明|Obsidian 配置备份说明]]
+
 ## 旧目录
 
 ### `cat_watch_esp32`
@@ -48,4 +52,3 @@ cat_watch_esp32s3
 - 工具脚本放在 `tools/`。
 - 临时问题和结论统一写进 `docs/问题记录.md`。
 - 每完成一个阶段，更新 `项目进度总表.md`。
-
