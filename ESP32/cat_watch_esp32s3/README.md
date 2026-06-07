@@ -26,6 +26,16 @@
 - `hardware/`：PCB 设计资料。
 - `docs/`：项目计划、接口说明、模型接入说明。
 
+## Obsidian 常用入口
+
+- [[项目进度总表]]
+- [[docs/索引]]
+- [[docs/问题记录]]
+- [[docs/项目总体计划]]
+- [[docs/项目优化建议]]
+- [[hardware/3D外壳打印和装配说明]]
+- [[docs/换电脑继续项目指南]]
+
 ## 固件编译
 
 先安装 ESP-IDF，然后进入 `firmware/`：
@@ -58,4 +68,3 @@ gcc -std=c11 -Wall -Wextra -I main/include test/test_behavior_engine.c main/beha
 ```text
 behavior_engine tests passed
 ```
-
