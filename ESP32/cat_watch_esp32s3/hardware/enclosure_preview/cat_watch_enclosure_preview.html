@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猫咪看护外壳 3D 预览</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; background: #eef2f6; color: #17202a; }
+    #app { display: grid; grid-template-columns: 1fr 300px; min-height: 100vh; }
+    canvas { display: block; width: 100%; height: 100vh; background: #dfe7ef; }
+    aside { padding: 18px; background: #fff; border-left: 1px solid #cbd5df; }
+    h1 { font-size: 20px; margin: 0 0 12px; }
+    p, li { font-size: 14px; line-height: 1.6; }
+    .tag { display:inline-block; padding: 3px 8px; border-radius: 5px; background:#e8f5f2; color:#0f766e; margin: 4px 4px 4px 0; }
+    @media (max-width: 760px) { #app { grid-template-columns: 1fr; } canvas { height: 68vh; } aside { border-left: 0; border-top: 1px solid #cbd5df; } }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <canvas id="view"></canvas>
+    <aside>
+      <h1>猫咪看护外壳预览</h1>
+      <p>鼠标左键拖动旋转，滚轮缩放。手机上用手指拖动旋转。</p>
+      <div>
+        <span class="tag">主壳体</span>
+        <span class="tag">摄像头孔</span>
+        <span class="tag">USB-C孔</span>
+        <span class="tag">底盖</span>
+        <span class="tag">舵机底座</span>
+      </div>
+      <p>这是结构示意模型，用于先看外观和空间关系。真正打印建议使用 <code>hardware/case_parametric.scad</code> 导出 STL。</p>
+      <ul>
+        <li>前方是摄像头开孔。</li>
+        <li>后方是 USB-C 开孔。</li>
+        <li>顶部是散热孔。</li>
+        <li>底部预留舵机水平旋转底座。</li>
+      </ul>
+    </aside>
+  </div>
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+    import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+    const canvas = document.getElementById('view');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xdfe7ef);
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+    camera.position.set(105, -120, 80);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 0, 22);
+    controls.update();
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x667788, 2.4));
+    const light = new THREE.DirectionalLight(0xffffff, 1.5);
+    light.position.set(80, -100, 120);
+    scene.add(light);
+    const grid = new THREE.GridHelper(140, 14, 0x8da2b6, 0xb8c7d6);
+    grid.rotation.x = Math.PI / 2;
+    scene.add(grid);
+    function addBox(name, size, pos, color, opacity = 1) {
+      const geo = new THREE.BoxGeometry(size[0], size[1], size[2]);
+      const mat = new THREE.MeshStandardMaterial({ color, transparent: opacity < 1, opacity, roughness: 0.55, metalness: 0.02 });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(pos[0], pos[1], pos[2]);
+      mesh.name = name;
+      scene.add(mesh);
+      const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({ color: 0x2b3642 }));
+      edges.position.copy(mesh.position);
+      scene.add(edges);
+    }
+    function addCylinder(name, radius, depth, pos, rot, color) {
+      const geo = new THREE.CylinderGeometry(radius, radius, depth, 48);
+      const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.5 });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(pos[0], pos[1], pos[2]);
+      mesh.rotation.set(rot[0], rot[1], rot[2]);
+      mesh.name = name;
+      scene.add(mesh);
+    }
+    addBox('主壳体', [82, 62, 30], [0, 0, 33], 0x7db7ff, 0.38);
+    addBox('内部空间', [68, 48, 23], [0, 0, 31.5], 0xf5f7fa, 0.22);
+    addCylinder('摄像头孔', 7, 5, [0, -33, 37], [Math.PI / 2, 0, 0], 0x111827);
+    addBox('USB-C开孔', [12, 5, 7], [0, 33, 28], 0x111827);
+    for (let i = -2; i <= 2; i++) addBox('顶部散热孔', [5, 24, 2], [i * 9, 0, 48], 0x0f766e);
+    addBox('PCB', [70, 50, 1.6], [0, 0, 22.8], 0x22c55e, 0.8);
+    addBox('底盖', [82, 62, 2], [0, 0, 13], 0x9ca3af, 0.85);
+    addBox('舵机底座', [62, 48, 16], [0, 0, 0], 0xf59e0b, 0.72);
+    addBox('舵机本体空间', [24, 13, 22], [0, 0, 7], 0x7c2d12, 0.32);
+    addCylinder('舵机输出轴', 4, 8, [0, 0, 12], [0, 0, 0], 0x374151);
+    function resize() {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    function animate() {
+      resize();
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猫咪看护外壳离线预览</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; background:#f2f5f8; color:#17202a; }
+    main { max-width: 980px; margin: 0 auto; padding: 20px; }
+    svg { width: 100%; height: auto; background:#e6edf4; border:1px solid #cad5df; border-radius:8px; }
+    h1 { font-size:22px; }
+    p, li { line-height:1.7; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>猫咪看护外壳离线预览</h1>
+  <p>这个页面不需要联网。它是简化等轴图，用来快速看外壳结构关系；真实 3D 模型请打开同目录 OBJ/STL，或使用带 Three.js 的 HTML 预览。</p>
+  <svg viewBox="0 0 900 560" role="img" aria-label="外壳等轴预览">
+    <defs>
+      <linearGradient id="body" x1="0" x2="1">
+        <stop offset="0" stop-color="#98c7ff"/>
+        <stop offset="1" stop-color="#5aa0f2"/>
+      </linearGradient>
+      <linearGradient id="base" x1="0" x2="1">
+        <stop offset="0" stop-color="#fbbf24"/>
+        <stop offset="1" stop-color="#f59e0b"/>
+      </linearGradient>
+    </defs>
+    <polygon points="310,170 575,110 710,210 445,270" fill="#b9d9ff" stroke="#263849" stroke-width="2"/>
+    <polygon points="310,170 445,270 445,405 310,305" fill="url(#body)" stroke="#263849" stroke-width="2"/>
+    <polygon points="445,270 710,210 710,345 445,405" fill="#6eaef6" stroke="#263849" stroke-width="2"/>
+    <polygon points="310,305 445,405 710,345 575,465" fill="#9ca3af" opacity="0.65" stroke="#263849" stroke-width="2"/>
+    <ellipse cx="372" cy="260" rx="34" ry="24" fill="#111827" stroke="#f8fafc" stroke-width="4"/>
+    <text x="322" y="236" fill="#111827" font-size="18">摄像头开孔</text>
+    <rect x="665" y="273" width="42" height="28" fill="#111827" stroke="#f8fafc" stroke-width="2"/>
+    <text x="690" y="260" fill="#111827" font-size="18">USB-C</text>
+    <g fill="#0f766e" opacity="0.9">
+      <polygon points="408,170 430,165 448,178 426,183"/>
+      <polygon points="450,160 472,155 490,168 468,173"/>
+      <polygon points="492,151 514,146 532,159 510,164"/>
+      <polygon points="534,142 556,137 574,150 552,155"/>
+    </g>
+    <text x="470" y="128" fill="#0f766e" font-size="18">顶部散热孔</text>
+    <polygon points="365,430 530,390 650,470 485,520" fill="url(#base)" stroke="#263849" stroke-width="2"/>
+    <polygon points="365,430 485,520 485,545 365,455" fill="#d97706" stroke="#263849" stroke-width="2"/>
+    <polygon points="485,520 650,470 650,495 485,545" fill="#f59e0b" stroke="#263849" stroke-width="2"/>
+    <text x="410" y="500" fill="#111827" font-size="18">舵机底座</text>
+    <rect x="481" y="444" width="72" height="38" rx="4" fill="#7c2d12" opacity="0.45" stroke="#431407"/>
+    <circle cx="516" cy="425" r="16" fill="#374151" stroke="#111827" stroke-width="2"/>
+    <text x="540" y="430" fill="#111827" font-size="18">舵机轴</text>
+  </svg>
+  <ul>
+    <li>主壳体：放 PCB、摄像头和 ESP32-S3。</li>
+    <li>前方圆孔：OV3660 摄像头开孔。</li>
+    <li>后方小孔：USB-C 线缆接口。</li>
+    <li>顶部绿色长孔：散热孔。</li>
+    <li>底部黄色部分：可选舵机底座。</li>
+  </ul>
+</main>
+</body>
+</html>
