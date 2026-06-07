@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猫咪看护</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="viewer">
+      <div class="stream-wrap" id="streamWrap">
+        <img id="stream" src="/stream" alt="实时画面">
+        <canvas id="overlay" width="320" height="240"></canvas>
+      </div>
+      <div class="toolbar">
+        <button data-region="bed">窝</button>
+        <button data-region="bowl">饭碗</button>
+        <button data-region="left_exit">左出口</button>
+        <button data-region="right_exit">右出口</button>
+        <button id="saveRegions">保存区域</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="status">
+        <span id="state">未知</span>
+        <span id="score">0.000</span>
+      </div>
+      <label class="servo">
+        <span>舵机</span>
+        <input id="servo" type="range" min="0" max="180" value="90">
+        <output id="servoOut">90</output>
+      </label>
+      <div class="metrics">
+        <div><span>Heap</span><strong id="heap">-</strong></div>
+        <div><span>PSRAM</span><strong id="psram">-</strong></div>
+        <div><span>Wi-Fi</span><strong id="wifi">-</strong></div>
+      </div>
+      <ul id="events" class="events"></ul>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+menu "Cat Watch Configuration"
+
+config CATWATCH_WIFI_SSID
+    string "Wi-Fi SSID"
+    default ""
+    help
+        Wi-Fi SSID used by the ESP32-S3 station.
+
+config CATWATCH_WIFI_PASSWORD
+    string "Wi-Fi password"
+    default ""
+    help
+        Wi-Fi password used by the ESP32-S3 station.
+
+config CATWATCH_CAMERA_FRAME_WIDTH
+    int "Camera logical frame width"
+    default 320
+
+config CATWATCH_CAMERA_FRAME_HEIGHT
+    int "Camera logical frame height"
+    default 240
+
+config CATWATCH_DETECTOR_STUB
+    bool "Use stub detector"
+    default y
+    help
+        Keep this enabled until ESP-Detection cat model integration is added.
+
+endmenu
+
