@@ -24,24 +24,24 @@
 
 第一版使用 8 位 DVP 输出，只接 `D9..D2`，不接 `D1/D0`。
 
-| OV3660 信号 | ESP32-S3 GPIO | 说明 |
-| --- | ---: | --- |
-| D9 | GPIO16 | 数据 bit7 |
-| D8 | GPIO17 | 数据 bit6 |
-| D7 | GPIO18 | 数据 bit5 |
-| D6 | GPIO8 | 数据 bit4 |
-| D5 | GPIO9 | 数据 bit3 |
-| D4 | GPIO10 | 数据 bit2 |
-| D3 | GPIO11 | 数据 bit1 |
-| D2 | GPIO12 | 数据 bit0 |
-| PCLK | GPIO13 | 像素时钟 |
-| VSYNC | GPIO6 | 场同步 |
-| HREF | GPIO7 | 行同步 |
-| XVCLK | GPIO15 | 摄像头主时钟 |
-| SIOC | GPIO5 | SCCB 时钟 |
-| SIOD | GPIO4 | SCCB 数据 |
-| RESETB | GPIO14 | 摄像头复位，低有效 |
-| PWDN | GPIO21 | 摄像头掉电控制，高有效 |
+| OV3660 信号 | ESP32-S3 GPIO | 说明          |
+| --------- | ------------: | ----------- |
+| D9        |        GPIO16 | 数据 bit7     |
+| D8        |        GPIO17 | 数据 bit6     |
+| D7        |        GPIO18 | 数据 bit5     |
+| D6        |         GPIO8 | 数据 bit4     |
+| D5        |         GPIO9 | 数据 bit3     |
+| D4        |        GPIO10 | 数据 bit2     |
+| D3        |        GPIO11 | 数据 bit1     |
+| D2        |        GPIO12 | 数据 bit0     |
+| PCLK      |        GPIO13 | 像素时钟        |
+| VSYNC     |         GPIO6 | 场同步         |
+| HREF      |         GPIO7 | 行同步         |
+| XVCLK     |        GPIO15 | 摄像头主时钟      |
+| SIOC      |         GPIO5 | SCCB 时钟     |
+| SIOD      |         GPIO4 | SCCB 数据     |
+| RESETB    |        GPIO14 | 摄像头复位，低有效   |
+| PWDN      |        GPIO21 | 摄像头掉电控制，高有效 |
 
 ## 舵机接口
 
