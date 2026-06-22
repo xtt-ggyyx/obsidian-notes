@@ -114,3 +114,14 @@ git : fatal: unable to access 'https://github.com/xtt-ggyyx/obsidian-notes.git/'
  
 2026-06-22 08:44:31 - ERROR: git push failed
 2026-06-22 08:44:35 - Start
+2026-06-22 08:44:35 - Commit
+git : To https://github.com/xtt-ggyyx/obsidian-notes.git
+所在位置 D:\keil5\obsidian\obsidian-notes\scripts\obsidian-backup.ps1:8 字符: 157
++ ... DE -ne 0){throw "git commit failed"};g "Commit";git push 2>&1|Out-Fil ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...idian-notes.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   d445159..0a860eb  main -> main
+2026-06-22 08:44:38 - Pushed
+2026-06-22 08:44:38 - User temp cleaned

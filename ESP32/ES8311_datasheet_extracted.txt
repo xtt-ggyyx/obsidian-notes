@@ -1,0 +1,624 @@
+ES8311 PDF 数据手册完整提取内容
+=====================================
+
+Total pages: 12
+
+===== PAGE 1 =====
+ES8311
+FEATURES Low Power Mono DAACu dio CODEC
+• 24-bit, 8 to 96 kHz sampling frequency
+System
+• 110 dB signal to noise ratio, -80 dB
+• High performance and low power multi- THD+N
+bit delta-sigma audio ADC and DAC • One pair of analog output with
+• I2S/PCM master or slave serial data port headphone driver and differential
+• 256/384Fs, USB 12/24 MHz and other output option
+non standard audio system clocks
+• Dynamic range compression
+• I2C interface • Pop and click noise suppression
+Low Power
+ADC
+• 24-bit, 8 to 96 kHz sampling frequency • 1.8V to 3.3V operation
+• 100 dB signal to noise ratio, -93 dB • 14 mW playback and record
+THD+N • Low standby current
+• One pair of analog input with
+differential input option
+APPLICATIONS
+• Low noise pre-amplifier
+• Noise reduction filters
+• Auto level control (ALC) and noise gate
+• Automotive
+• Support analog and digital microphone
+• Phone
+• Toy
+• 2-way radio
+• Dash cam
+• IP Camera
+• DVR, NVR
+• Surveillance
+ORDERING INFORMATION
+ES8311 -40°C ~ +105°C
+QFN-20
+1
+
+===== PAGE 2 =====
+Everest Semiconductor Confidential ES8311
+1. BLOCK DIAGRAM
+Revision 5.0 2 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+MCLK
+VMID DACVREF ADCVREF
+CE
+CCLK CDATA
+AGND AVDD DGND PVDD DVDD
+LRCK SCLK
+ASDOUT
+DSDIN
+Clock Mgr I2C I2S/PCM
+OUTP
+ADC ALC
+MIC1P Mono Mono HP Driver
+PGA
+ADC
+DAC DRC
+DAC
+OUTN
+Noise Filter
+MIC1N
+Analog Reference Power Supply
+
+--- TABLE 1 on page 2 ---
+['OUTP']
+['OUTN']
+
+===== PAGE 3 =====
+Everest Semiconductor Confidential ES8311
+ES8311
+Revision 5.0 3 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+CE
+20
+6
+SCLK/DMIC_SCL
+CDATA
+19
+7
+ASDOUT
+MIC1P/DMIC_SDA
+18
+8
+LRCK
+MIC1N
+17
+9
+DSDIN
+VMID
+16
+10
+AGND
+2. PIN OUT AND DESCRIPTION
+CCLK 1 15 ADCVREF
+MCLK 2 14 DACVREF
+PVDD 3 13 OUTN
+DVDD 4 12 OUTP
+DGND 5 11 AVDD
+Pin Name Pin number Input or Output Pin Description
+CCLK, CDATA, CE 1, 19, 20 I, I/O, I I2C clock, data, address
+MCLK 2 I Master clock
+SCLK/DMIC_SCL 6 I/O Serial data bit clock/DMIC bit clock
+LRCK 8 I/O Serial data left and right channel frame clock
+ASDOUT 7 O ADC serial data output
+DSDIN 9 I DAC serial data input
+MIC1P/DMIC_SDA 18
+I Mic input
+MIC1N 17
+OUTP, OUTN 12, 13 O Differential analog output
+PVDD 3 Analog Power supply for the digital input and output
+DVDD, DGND 4, 5 Analog Digital power supply
+AVDD, AGND 11, 10 Analog Analog power supply
+VMID 16 Analog Filtering capacitor connection
+ADCVREF, DACVREF 15, 14 Analog Filtering capacitor connection
+
+--- TABLE 1 on page 3 ---
+['Pin Name', 'Pin number', 'Input or Output', 'Pin Description']
+['CCLK, CDATA, CE', '1, 19, 20', 'I, I/O, I', 'I2C clock, data, address']
+['MCLK', '2', 'I', 'Master clock']
+['SCLK/DMIC_SCL', '6', 'I/O', 'Serial data bit clock/DMIC bit clock']
+['LRCK', '8', 'I/O', 'Serial data left and right channel frame clock']
+['ASDOUT', '7', 'O', 'ADC serial data output']
+['DSDIN', '9', 'I', 'DAC serial data input']
+['MIC1P/DMIC_SDA\nMIC1N', '18\n17', 'I', 'Mic input']
+['OUTP, OUTN', '12, 13', 'O', 'Differential analog output']
+['PVDD', '3', 'Analog', 'Power supply for the digital input and output']
+['DVDD, DGND', '4, 5', 'Analog', 'Digital power supply']
+['AVDD, AGND', '11, 10', 'Analog', 'Analog power supply']
+['VMID', '16', 'Analog', 'Filtering capacitor connection']
+['ADCVREF, DACVREF', '15, 14', 'Analog', 'Filtering capacitor connection']
+
+===== PAGE 4 =====
+Everest Semiconductor Confidential ES8311
+3. TYPICAL APPLICATION CIRCUIT
+AGND
+VA
+AGND 1uF
+0.1uF 0.1uF
+VD 3
+VP PVDD
+5
+DGND
+1uF
+AGND2
+MCLK
+1uF
+8
+LRCK
+MCU/DSP 7 ASDOUT
+9
+DSDIN
+1
+CCLK
+Revision 5.0 4 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+51
+FERVCDA
+61
+DIMV
+01
+DNGA
+11
+DDVA
+17
+MIC1N
+41
+FERVCAD
+4
+DVDD
+18
+MIC1P/DMIC_SDA
+6
+SCLK/DMIC_SCL
+13
+OUTN
+12
+OUTP
+19
+CDATA
+20
+CE
+12
+DNGP
+GND(SYS) 0R
+AGND
+In the layout, chip is treated as a analog device
+AGND *
+1uF 1uF 1uF
+* * *
+AGND
+* *
+MIC1P
+MIC1N
+ES8311
+OUTN
+1uF
+OUTP
+1uF
+For the best performance,decoupling and filtering capacitors should be located as close to the device package as possible
+* Additional paralle capacitors(typically 0.1 μF) can be used, larger value capacitors(typically 10 μF) would also help
+
+--- TABLE 1 on page 4 ---
+['', '', '01', '12']
+['1uF\n*\n51', '1uF\n*\n61', None, None]
+
+--- TABLE 2 on page 4 ---
+['', None, '', '3']
+[None, '', None, None]
+
+--- TABLE 3 on page 4 ---
+['6']
+['8']
+['7']
+['9']
+['1']
+['19']
+['20']
+
+===== PAGE 5 =====
+Everest Semiconductor Confidential ES8311
+4. CLOCK MODES AND SAMPLING FREQUENCIES
+The device supports standard audio clocks (64F, 128Fs, 256Fs, 384Fs, 512Fs, etc), USB clocks
+(12/24 MHz), and some common non standard audio clocks (16 MHz, 25 MHz, 26 MHz, etc).
+According to the serial audio data sampling frequency (Fs), the device can work in two speed
+modes: single speed mode or double speed mode. In single speed mode, Fs normally ranges
+from 8 kHz to 48 kHz, and in double speed mode, Fs normally range from 64 kHz to 96 kHz.
+The device can work either in master clock mode or slave clock mode. In slave mode, LRCK and
+SCLK are supplied externally, and LRCK and SCLK must be synchronously derived from the
+system clock with specific rates. In master mode, LRCK and SCLK are derived internally from
+device master clock.
+5. MICRO-CONTROLLER CONFIGURATION INTERFACE
+The device supports standard I2C micro-controller configuration interface. External micro-
+controller can completely configure the device through writing to internal configuration
+registers.
+I2C interface is a bi-directional serial bus that uses a serial data line (CDATA) and a serial clock
+line (CCLK) for data transfer. The timing diagram for data transfer of this interface is given in
+Figure 1a and Figure 1b. Data are transmitted synchronously to CCLK clock on the CDATA line on
+a byte-by-byte basis. Each bit in a byte is sampled during CCLK high with MSB bit being
+transmitted firstly. Each transferred byte is followed by an acknowledge bit from receiver to pull
+the CDATA low. The transfer rate of this interface can be up to 400 kbps.
+A master controller initiates the transmission by sending a "start" signal, which is defined as a
+high-to-low transition at CDATA while CCLK is high. The first byte transferred is the slave address.
+It is a seven-bit chip address followed by a RW bit. The chip address must be 0011 00x, where x
+equals CE. The RW bit indicates the slave data transfer direction. Once an acknowledge bit is
+received, the data transfer starts to proceed on a byte-by-byte basis in the direction specified by
+the RW bit. The master can terminate the communication by generating a "stop" signal, which
+is defined as a low-to-high transition at CDATA while CCLK is high.
+In I2C interface mode, the registers can be written and read. The formats of "write" and "read"
+instructions are shown in Table 1 and Table 2. Please note that, to read data from a register, you
+must set R/W bit to 0 to access the register address and then set R/W to 1 to read data from the
+register.
+Table 1 Write Data to Register in I2C Interface Mode
+Chip Address R/W Register Address Data to be written
+start 0011 00 CE 0 ACK RAM ACK DATA ACK Stop
+Revision 5.0 5 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+--- TABLE 1 on page 5 ---
+['', 'Chip Address', 'R/W', '', 'Register Address', '', 'Data to be written', '', '']
+['start', '0011 00 CE', '0', 'ACK', 'RAM', 'ACK', 'DATA', 'ACK', 'Stop']
+
+===== PAGE 6 =====
+Everest Semiconductor Confidential ES8311
+Chip Addr Write ACK Reg Addr ACK Write Data ACK
+CDATA bit 1 to 7 bit 1 to 8 bit 1 to 8
+CCLK
+START STOP
+Figure 1a I2C Write Timing
+Table 2 Read Data from Register in I2C Interface Mode
+Chip Address R/W Register Address
+Start 0011 00 CE 0 ACK RAM ACK
+Chip Address R/W Data to be read
+Start 0011 00 CE 1 ACK Data NACK Stop
+Chip Addr Write ACK Reg Addr ACK Chip Addr Read ACK Read Data NO ACK
+CDATA bit 1 to 7 bit 1 to 8 bit 1 to 7 bit 1 to 8
+CCLK
+START START STOP
+Figure 1b I2C R ead Timing
+Revision 5.0 6 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+--- TABLE 1 on page 6 ---
+[None, None, None, 'Chip Addr', 'Write ACK', None, None, 'Reg Addr', 'ACK', None, None, 'Write Data', 'ACK', None, None]
+[None, None, None, None, '', '', '', None, None, '', '', None, None, '', '']
+[None, None, None, 'bit 1 to 7', None, None, 'bit 1 to 8', None, None, None, 'bit 1 to 8', None, None, None, None]
+[None, None, '', None, None, None, None, None, None, None, None, None, None, '', '']
+[None, '', None, None, None, None, None, None, None, None, None, None, None, None, None]
+[None, None, '', None, None, None, None, None, None, None, None, None, None, None, '']
+['START', None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+
+--- TABLE 2 on page 6 ---
+['', 'Chip Address', 'R/W', '', 'Register Address', '', '']
+['Start', '0011 00 CE', '0', 'ACK', 'RAM', 'ACK', '']
+['', 'Chip Address', 'R/W', '', 'Data to be read', '', '']
+['Start', '0011 00 CE', '1', 'ACK', 'Data', 'NACK', 'Stop']
+
+--- TABLE 3 on page 6 ---
+[None, None, 'Chip Addr', 'Write ACK', None, None, None, 'Reg Addr', 'ACK', None, None]
+[None, None, None, '', '', '', '', None, None, '', '']
+['', None, 'bit 1 to 7', None, None, None, 'bit 1 to 8', None, None, None, None]
+[None, '', None, None, None, None, None, None, None, None, None]
+['', None, None, None, None, None, None, None, None, None, None]
+[None, '', None, None, None, None, None, None, None, None, '']
+
+--- TABLE 4 on page 6 ---
+['Chip Addr', '', 'Read ACK', None, None, '', 'Read Data']
+[None, None, '', '', '', None, None]
+['bit 1 to 7', None, None, None, None, 'bit 1 to 8', None]
+
+===== PAGE 7 =====
+Everest Semiconductor Confidential ES8311
+6. DIGITAL AUDIO INTERFACE
+The device provides many formats of serial audio data interface to the input of the DAC or
+output from the ADC through LRCK, SCLK and DSDIN or ASDOUT pins. These formats are I2S, left
+justified, right justified and DSP/PCM. DAC input DSDIN is sampled by the device on the rising
+edge of SCLK. ADC data is out at ASDOUT on the falling edge of SCLK. The relationship of SDATA
+(DSIN/ASDOUT), SCLK and LRCK with these formats are shown through Figure 2a to Figure 2d.
+1 SCLK 1 SCLK
+LRCK L Channel R Channel
+SCLK
+SDATA
+MSB LSB MSB LSB
+Figure 2a I2S Serial Audio Da ta Format
+LRCK L Channel R Channel
+SCLK
+SDATA
+MSB LSB MSB LSB
+Figure 2b Left Justified Serial Audio Data Format
+1 SCLK
+LRCK L Channel R Channel
+SCLK
+SDATA
+MSB LSB MSB LSB
+Figure 2c DSP/PCM Mod e A Serial Audio Data Format
+LRCK L Channel R Channel
+SCLK
+SDATA
+MSB LSB MSB LSB
+Figure 2d DSP/PCM Mode B Serial Audio Data Format
+Revision 5.0 7 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+--- TABLE 1 on page 7 ---
+['', None, None, None, None]
+[None, '', None, None, None]
+[None, '', '', '', '']
+[None, 'MSB', None, None, None]
+
+--- TABLE 2 on page 7 ---
+['', '']
+
+--- TABLE 3 on page 7 ---
+['', '']
+
+--- TABLE 4 on page 7 ---
+['SDATA', None, '', '']
+[None, 'MSB', None, None]
+
+--- TABLE 5 on page 7 ---
+['', None, '']
+[None, 'LSB', None]
+
+--- TABLE 6 on page 7 ---
+[None, '', '']
+['MSB', None, None]
+
+--- TABLE 7 on page 7 ---
+['', '']
+
+--- TABLE 8 on page 7 ---
+['', '', '', '']
+['LSB MSB', None, None, None]
+
+--- TABLE 9 on page 7 ---
+['', '']
+
+--- TABLE 10 on page 7 ---
+['LRCK']
+['SCLK']
+
+--- TABLE 11 on page 7 ---
+['SDATA', None, '', '']
+[None, 'MSB', None, None]
+
+--- TABLE 12 on page 7 ---
+['', '', '', '']
+['LSB MSB', None, None, None]
+
+--- TABLE 13 on page 7 ---
+['', '']
+
+===== PAGE 8 =====
+Everest Semiconductor Confidential ES8311
+7. ELECTRICAL CHARACTERISTICS
+ABSOLUTE MAXIMUM RATINGS
+Continuous operation at or beyond these conditions may permanently damage the device.
+PARAMETER MIN MAX
+Analog Supply Voltage Level -0.3V +3.6V
+Digital Supply Voltage Level -0.3V +3.6V
+Analog Input Voltage Range AGND-0.3V AVDD+0.3V
+Digital Input Voltage Range DGND-0.3V PVDD+0.3V
+Operating Temperature Range -40°C +105°C
+Storage Temperature -65°C +150°C
+RECOMMENDED OPERATING CONDITIONS
+PARAMETER MIN TYP MAX UNIT
+DVDD 1.6 3.3 3.6 V
+PVDD 1.6 3.3 3.6 V
+AVDD 1.7 3.3 3.6 V
+ADC ANALOG AND FILTER CHARACTERISTICS AND SPECIFICATIONS
+Test conditions are as the following unless otherwise specify: AVDD=3.3V, DVDD=3.3V,
+AGND=0V, DGND=0V, Ambient temperature=25°C, Fs=48 KHz, MCLK/LRCK=256.
+PARAMETER MIN TYP MAX UNIT
+ADC Performance
+Signal to Noise ratio (A-weigh) 95 100 102 dB
+THD+N -95 -93 -85 dB
+Gain Error ±5 %
+Filter Frequency Response – Single Speed
+Passband 0 0.4535 Fs
+Stopband 0.5465 Fs
+Passband Ripple ±0.05 dB
+Stopband Attenuation 70 dB
+Filter Frequency Response – Double Speed
+Passband 0 0.4167 Fs
+Stopband 0.5833 Fs
+Passband Ripple ±0.005 dB
+Stopband Attenuation 70 dB
+Analog Input
+Full Scale Input Level AVDD/3.3 Vrms
+Input Impedance 6 KΩ
+DAC ANALOG AND FILTER CHARACTERISTICS AND SPECIFICATIONS
+Test conditions are as the following unless otherwise specify: AVDD=3.3V, DVDD=3.3V,
+AGND=0V, DGND=0V, Ambient temperature=25°C, Fs=48 KHz, MCLK/LRCK=256.
+Revision 5.0 8 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+--- TABLE 1 on page 8 ---
+['PARAMETER', 'MIN', 'MAX']
+['Analog Supply Voltage Level', '-0.3V', '+3.6V']
+['Digital Supply Voltage Level', '-0.3V', '+3.6V']
+['Analog Input Voltage Range', 'AGND-0.3V', 'AVDD+0.3V']
+['Digital Input Voltage Range', 'DGND-0.3V', 'PVDD+0.3V']
+['Operating Temperature Range', '-40°C', '+105°C']
+['Storage Temperature', '-65°C', '+150°C']
+
+--- TABLE 2 on page 8 ---
+['PARAMETER', 'MIN', 'TYP', 'MAX', 'UNIT']
+['DVDD', '1.6', '3.3', '3.6', 'V']
+['PVDD', '1.6', '3.3', '3.6', 'V']
+['AVDD', '1.7', '3.3', '3.6', 'V']
+
+--- TABLE 3 on page 8 ---
+['PARAMETER', 'MIN', 'TYP', 'MAX', 'UNIT']
+['ADC Performance', None, None, None, None]
+['Signal to Noise ratio (A-weigh)', '95', '100', '102', 'dB']
+['THD+N', '-95', '-93', '-85', 'dB']
+['Gain Error', '', '', '±5', '%']
+['Filter Frequency Response – Single Speed', None, None, None, None]
+['Passband', '0', '', '0.4535', 'Fs']
+['Stopband', '0.5465', '', '', 'Fs']
+['Passband Ripple', '', '', '±0.05', 'dB']
+['Stopband Attenuation', '70', '', '', 'dB']
+['Filter Frequency Response – Double Speed', None, None, None, None]
+['Passband', '0', '', '0.4167', 'Fs']
+['Stopband', '0.5833', '', '', 'Fs']
+['Passband Ripple', '', '', '±0.005', 'dB']
+['Stopband Attenuation', '70', '', '', 'dB']
+['Analog Input', None, None, None, None]
+['Full Scale Input Level', '', 'AVDD/3.3', '', 'Vrms']
+['Input Impedance', '', '6', '', 'KΩ']
+
+===== PAGE 9 =====
+Everest Semiconductor Confidential ES8311
+PARAMETER MIN TYP MAX UNIT
+DAC Performance
+Signal to Noise ratio (A-weigh) 100 110 115 dB
+THD+N -85 -80 -75 dB
+Gain Error ±5 %
+Filter Frequency Response – Single Speed
+Passband 0 0.4535 Fs
+Stopband 0.5465 Fs
+Passband Ripple ±0.05 dB
+Stopband Attenuation 53 dB
+Filter Frequency Response – Double Speed
+Passband 0 0.4167 Fs
+Stopband 0.5833 Fs
+Passband Ripple ±0.005 dB
+Stopband Attenuation 56 dB
+Analog Output
+Full Scale Output Level AVDD/3.3 Vrms
+DC CHARACTERISTICS
+PARAMETER MIN TYP MAX UNIT
+Normal Operation Mode
+DVDD=1.8V, PVDD=1.8V, AVDD=3.3V 8 mA
+Power Down Mode
+DVDD=1.8V, PVDD=1.8V, AVDD=3.3V 0 uA
+Digital Voltage Level
+Input High-level Voltage 0.7*PVDD V
+Input Low-level Voltage 0.5 V
+Output High-level Voltage PVDD V
+Output Low-level Voltage 0 V
+SERIAL AUDIO PORT SWITCHING SPECIFICATIONS
+PARAMETER Symbol MIN MAX UNIT
+MCLK frequency 51.2 MHz
+MCLK duty cycle 40 60 %
+LRCK frequency 200 KHz
+LRCK duty cycle 40 60 %
+SCLK frequency 26 MHz
+SCLK pulse width low T 15 ns
+SCLKL
+SCLK Pulse width high T 15 ns
+SCLKH
+SCLK falling to LRCK edge T –10 10 ns
+SLR
+SCLK falling to SDOUT valid T 11 ns
+SDO
+Revision 5.0 9 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+--- TABLE 1 on page 9 ---
+['PARAMETER', 'MIN', 'TYP', 'MAX', 'UNIT']
+['DAC Performance', None, None, None, None]
+['Signal to Noise ratio (A-weigh)', '100', '110', '115', 'dB']
+['THD+N', '-85', '-80', '-75', 'dB']
+['Gain Error', '', '', '±5', '%']
+['Filter Frequency Response – Single Speed', None, None, None, None]
+['Passband', '0', '', '0.4535', 'Fs']
+['Stopband', '0.5465', '', '', 'Fs']
+['Passband Ripple', '', '', '±0.05', 'dB']
+['Stopband Attenuation', '53', '', '', 'dB']
+['Filter Frequency Response – Double Speed', None, None, None, None]
+['Passband', '0', '', '0.4167', 'Fs']
+['Stopband', '0.5833', '', '', 'Fs']
+['Passband Ripple', '', '', '±0.005', 'dB']
+['Stopband Attenuation', '56', '', '', 'dB']
+['Analog Output', None, None, None, None]
+['Full Scale Output Level', '', 'AVDD/3.3', '', 'Vrms']
+
+--- TABLE 2 on page 9 ---
+['PARAMETER', 'MIN', 'TYP', 'MAX', 'UNIT']
+['Normal Operation Mode', None, None, None, None]
+['DVDD=1.8V, PVDD=1.8V, AVDD=3.3V', '', '8', '', 'mA']
+['Power Down Mode', None, None, None, None]
+['DVDD=1.8V, PVDD=1.8V, AVDD=3.3V', '', '0', '', 'uA']
+['Digital Voltage Level', None, None, None, None]
+['Input High-level Voltage', '0.7*PVDD', '', '', 'V']
+['Input Low-level Voltage', '', '', '0.5', 'V']
+['Output High-level Voltage', '', 'PVDD', '', 'V']
+['Output Low-level Voltage', '', '0', '', 'V']
+
+--- TABLE 3 on page 9 ---
+['PARAMETER', 'Symbol', 'MIN', 'MAX', 'UNIT']
+['MCLK frequency', '', '', '51.2', 'MHz']
+['MCLK duty cycle', '', '40', '60', '%']
+['LRCK frequency', '', '', '200', 'KHz']
+['LRCK duty cycle', '', '40', '60', '%']
+['SCLK frequency', '', '', '26', 'MHz']
+['SCLK pulse width low', 'T\nSCLKL', '15', '', 'ns']
+['SCLK Pulse width high', 'T\nSCLKH', '15', '', 'ns']
+['SCLK falling to LRCK edge', 'T\nSLR', '–10', '10', 'ns']
+['SCLK falling to SDOUT valid', 'T\nSDO', '11', '', 'ns']
+
+===== PAGE 10 =====
+Everest Semiconductor Confidential ES8311
+Figure 3 Serial Audio Port Timing
+I2C SWITCHING SPECIFICATIONS
+PARAMETER Symbol MIN MAX UNIT
+CCLK Clock Frequency F 400 KHz
+CCLK
+Bus Free Time Between Transmissions T 1.3 us
+TWID
+Start Condition Hold Time T 0.6 us
+TWSTH
+Clock Low time T 1.3 us
+TWCL
+Clock High Time T 0.4 us
+TWCH
+Setup Time for Repeated Start Condition T 0.6 us
+TWSTS
+CDATA Hold Time from CCLK Falling T 900 ns
+TWDH
+CDATA Setup time to CCLK Rising T 100 ns
+TWDS
+Rise Time of CCLK T 300 ns
+TWR
+Fall Time CCLK T 300 ns
+TWF
+Figure 4 I2C Timing
+Revision 5.0 10 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+--- TABLE 1 on page 10 ---
+['PARAMETER', 'Symbol', 'MIN', 'MAX', 'UNIT']
+['CCLK Clock Frequency', 'F\nCCLK', '', '400', 'KHz']
+['Bus Free Time Between Transmissions', 'T\nTWID', '1.3', '', 'us']
+['Start Condition Hold Time', 'T\nTWSTH', '0.6', '', 'us']
+['Clock Low time', 'T\nTWCL', '1.3', '', 'us']
+['Clock High Time', 'T\nTWCH', '0.4', '', 'us']
+['Setup Time for Repeated Start Condition', 'T\nTWSTS', '0.6', '', 'us']
+['CDATA Hold Time from CCLK Falling', 'T\nTWDH', '', '900', 'ns']
+['CDATA Setup time to CCLK Rising', 'T\nTWDS', '100', '', 'ns']
+['Rise Time of CCLK', 'T\nTWR', '', '300', 'ns']
+['Fall Time CCLK', 'T\nTWF', '', '300', 'ns']
+
+===== PAGE 11 =====
+Everest Semiconductor Confidential ES8311
+8. PACKAGE
+Revision 5.0 11 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
+
+===== PAGE 12 =====
+Everest Semiconductor Confidential ES8311
+9. CORPORATE INFORMATION
+Everest Semiconductor Co., Ltd.
+No. 1355 Jinjihu Drive, Suzhou Industrial Park, Jiangsu, P.R. China, Zip Code 215021
+苏州工业园区金鸡湖大道1355号国际科技园, 邮编215021
+Email: info@everest-semi.com
+Revision 5.0 12 March 2019
+Latest datasheet: www.everest-semi.com or info@everest-semi.com
