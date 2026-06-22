@@ -104,3 +104,13 @@ git : To https://github.com/xtt-ggyyx/obsidian-notes.git
 2026-06-22 08:38:00 - Pushed
 2026-06-22 08:38:00 - User temp cleaned
 2026-06-22 08:44:09 - Start
+2026-06-22 08:44:09 - Commit
+git : fatal: unable to access 'https://github.com/xtt-ggyyx/obsidian-notes.git/': Recv failure: Connection was reset
+所在位置 D:\keil5\obsidian\obsidian-notes\scripts\obsidian-backup.ps1:8 字符: 157
++ ... DE -ne 0){throw "git commit failed"};g "Commit";git push 2>&1|Out-Fil ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: unable t...ction was reset:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-06-22 08:44:31 - ERROR: git push failed
+2026-06-22 08:44:35 - Start
