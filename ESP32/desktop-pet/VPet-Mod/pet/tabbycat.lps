@@ -1,0 +1,6 @@
+pet#tabbycat:|intor#一只可爱的灰棕色虎斑小猫，喜欢抱着小鱼玩偶睡觉:|path#tabbycat:|petname#小灰棕:|
+tag#all,cat,pixel:|
+touchhead:|px#200:|py#50:|sw#100:|sh#80:|
+touchbody:|px#180:|py#200:|sw#140:|sh#100:|
+raisepoint:|nomal_x#250:|nomal_y#150:|happy_x#250:|happy_y#150:|
+duration:|state#10:|squat#20:|boring#20:|sleep#20:|
