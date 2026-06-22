@@ -1,14 +1,14 @@
-﻿![[{6FC35619-2F01-4095-B11C-126774143938}.png]]
+﻿![](attachment/{6FC35619-2F01-4095-B11C-126774143938}.png)
 
 **基准电压源：** 是一种能提供<mark style="background: #FF5582A6;">稳定、精确、不随温度负载、电源电压变化而波动</mark>的电压源。它广泛应用于电子电路中，尤其是在需要高精度和稳定性的场合，如模数转换（ADC）、数模转（DAC）、稳压电路、传感器电路等。
 
 #### TL431基准电压源芯片
-![[image-3.png]]
+![](attachment/image-3.png)
 
 ##### 应用电路1：
 
-![[image-4.png]]
+![](attachment/image-4.png)
 
 ##### 应用电路2：
 
-![[image-5.png]]
+![](attachment/image-5.png)

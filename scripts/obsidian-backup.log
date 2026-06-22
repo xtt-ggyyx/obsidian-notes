@@ -92,3 +92,15 @@ git : To https://github.com/xtt-ggyyx/obsidian-notes.git
 2026-06-22 08:29:16 - Pushed
 2026-06-22 08:29:16 - User temp cleaned
 2026-06-22 08:37:56 - Start
+2026-06-22 08:37:56 - Commit
+git : To https://github.com/xtt-ggyyx/obsidian-notes.git
+所在位置 D:\keil5\obsidian\obsidian-notes\scripts\obsidian-backup.ps1:8 字符: 157
++ ... DE -ne 0){throw "git commit failed"};g "Commit";git push 2>&1|Out-Fil ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...idian-notes.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   7531f74..d445159  main -> main
+2026-06-22 08:38:00 - Pushed
+2026-06-22 08:38:00 - User temp cleaned
+2026-06-22 08:44:09 - Start
